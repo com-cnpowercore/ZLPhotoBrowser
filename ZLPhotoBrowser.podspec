@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
 
   s.source                = {:git => 'https://github.com/longitachi/ZLPhotoBrowser.git', :tag => s.version}
 
-  s.ios.deployment_target = '10.0'
+  s.ios.deployment_target = '11.0'
 
   s.swift_versions        = ['5.0', '5.1', '5.2']
 
