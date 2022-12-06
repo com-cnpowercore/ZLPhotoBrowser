@@ -332,7 +332,6 @@ class ZLThumbnailViewController: UIViewController {
     }
     
     private func setupUI() {
-        automaticallyAdjustsScrollViewInsets = true
         edgesForExtendedLayout = .all
         view.backgroundColor = .zl.thumbnailBgColor
         

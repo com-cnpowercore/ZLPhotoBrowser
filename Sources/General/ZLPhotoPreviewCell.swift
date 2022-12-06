@@ -580,7 +580,7 @@ class ZLVideoPreviewCell: ZLPreviewBaseCell {
     
     override func resetSubViewStatusWhenCellEndDisplay() {
         imageView.isHidden = false
-        player?.currentItem?.seek(to: CMTimeMake(value: 0, timescale: 1))
+        player?.currentItem?.seek(to: CMTime(value: 0, timescale: 1), completionHandler: nil)
     }
     
     override func animateImageFrame(convertTo view: UIView) -> CGRect {
@@ -661,7 +661,7 @@ class ZLVideoPreviewCell: ZLPreviewBaseCell {
         let duration = player?.currentItem?.duration
         if player?.rate == 0 {
             if currentTime?.value == duration?.value {
-                player?.currentItem?.seek(to: CMTimeMake(value: 0, timescale: 1))
+                player?.currentItem?.seek(to: CMTime(value: 0, timescale: 1), completionHandler: nil)
             }
             imageView.isHidden = true
             player?.play()
@@ -748,7 +748,7 @@ class ZLNetVideoPreviewCell: ZLPreviewBaseCell {
     }
     
     override func resetSubViewStatusWhenCellEndDisplay() {
-        player?.currentItem?.seek(to: CMTimeMake(value: 0, timescale: 1))
+        player?.currentItem?.seek(to: CMTime(value: 0, timescale: 1), completionHandler: nil)
     }
     
     private func setupUI() {
@@ -762,7 +762,7 @@ class ZLNetVideoPreviewCell: ZLPreviewBaseCell {
         let duration = player?.currentItem?.duration
         if player?.rate == 0 {
             if currentTime?.value == duration?.value {
-                player?.currentItem?.seek(to: CMTimeMake(value: 0, timescale: 1))
+                player?.currentItem?.seek(to: CMTime(value: 0, timescale: 1), completionHandler: nil)
             }
             player?.play()
             playBtn.setImage(nil, for: .normal)

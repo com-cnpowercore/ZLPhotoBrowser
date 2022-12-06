@@ -46,6 +46,8 @@ extension ZLLanguageType {
             return "Türkçe (Turkish)"
         case .arabic:
             return "عربي (Arabic)"
+        case .thai:
+            return "ภาษาไทย (Thai)"
         }
     }
     

@@ -44,6 +44,7 @@ import Foundation
     case spanish
     case turkish
     case arabic
+    case thai
 }
 
 public struct ZLLocalLanguageKey: Hashable {

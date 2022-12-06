@@ -768,7 +768,7 @@ open class ZLCustomCamera: UIViewController, CAAnimationDelegate {
         if videoInput?.device.position == .front, connection?.isVideoMirroringSupported == true {
             connection?.isVideoMirrored = true
         }
-        let setting = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecJPEG])
+        let setting = AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])
         if videoInput?.device.hasFlash == true {
             setting.flashMode = ZLPhotoConfiguration.default().cameraConfiguration.flashMode.avFlashMode
         }
@@ -1008,19 +1008,18 @@ extension ZLCustomCamera: AVCapturePhotoCaptureDelegate {
             self.previewLayer?.add(animation, forKey: nil)
         }
     }
-    
-    public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
+    public func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
         ZLMainAsync {
             defer {
                 self.isTakingPicture = false
             }
             
-            if photoSampleBuffer == nil || error != nil {
+            if error != nil {
                 zl_debugPrint("拍照失败 \(error?.localizedDescription ?? "")")
                 return
             }
-            
-            if let data = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer!, previewPhotoSampleBuffer: previewPhotoSampleBuffer) {
+            let imageData = photo
+            if let data = photo.fileDataRepresentation() {
                 self.sessionQueue.async {
                     self.session.stopRunning()
                     self.resetSubViewStatus()

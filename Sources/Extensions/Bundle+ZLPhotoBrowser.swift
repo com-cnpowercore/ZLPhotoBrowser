@@ -143,6 +143,8 @@ extension Bundle {
                 language = "tr"
             } else if language.hasPrefix("ar") {
                 language = "ar"
+            } else if language.hasPrefix("th") {
+                language = "th"
             } else {
                 language = "en"
             }
@@ -178,6 +180,8 @@ extension Bundle {
             language = "tr"
         case .arabic:
             language = "ar"
+        case .thai:
+            language = "th"
         }
         
         return language

@@ -1,0 +1,68 @@
+"previewCamera" ="กล้อง";
+"previewCameraRecord" ="บันทึก";
+"previewAlbum" ="อัลบั้ม";
+"cancel" ="ยกเลิก";
+
+"originalPhoto" ="ภาพเต็ม";
+"done" ="เสร็จแล้ว";
+"ok" ="ตกลง";
+"editFinish" ="เสร็จแล้ว";
+
+"back" ="กลับ";
+"edit" ="แก้ไข";
+"revert" ="เลิกทำ";
+"brightness" ="ความสว่าง";
+"contrast" ="ตัดกัน";
+"saturation" ="ความอิ่มตัว";
+
+"photo" ="ภาพถ่าย";
+"preview" ="ดูตัวอย่าง";
+
+"noPhotoTips" ="ไม่มีรูปถ่าย";
+
+"hudLoading" ="การรอคอย...";
+
+"exceededMaxSelectCount" ="จำนวนสูงสุดสำหรับการเลือก: %ld";
+"longerThanMaxVideoDuration" ="ไม่สามารถเลือกวิดีโอที่มีระยะเวลานานกว่า %lds";
+"shorterThanMaxVideoDuration" ="ไม่สามารถเลือกวิดีโอที่มีระยะเวลาสั้นกว่า %lds";
+"exceededMaxVideoSelectCount" ="จำนวนสูงสุดสำหรับการเลือกวิดีโอ: %ld";
+"lessThanMinVideoSelectCount" ="จำนวนขั้นต่ำสำหรับการเลือกวิดีโอ: %ld";
+
+"noCameraAuthority" ="โปรดอนุญาตให้ %@ เข้าถึงกล้องของอุปกรณ์ใน \"การตั้งค่า\" > \"ความเป็นส่วนตัว\" > \"กล้อง\"";
+"noPhotoLibratyAuthority" ="โปรดอนุญาตให้ %@ เข้าถึงอัลบั้มของคุณใน \"การตั้งค่า\" > \"ความเป็นส่วนตัว\" > \"ภาพถ่าย\"";
+"noMicrophoneAuthority" ="ไม่สามารถบันทึกเสียงได้ ไปที่ \"การตั้งค่า\" > \"%@\" และเปิดใช้งานการเข้าถึงไมโครโฟน";
+"cameraUnavailable" ="กล้องไม่พร้อมใช้งาน";
+"keepRecording" ="บันทึกต่อ";
+"gotoSettings" ="ไปที่การตั้งค่า";
+
+"iCloudVideoLoadFaild" ="ไม่สามารถซิงค์จาก iCloud";
+"imageLoadFailed" ="การโหลดล้มเหลว";
+
+"save" ="บันทึก";
+"saveImageError" ="บันทึกภาพไม่สำเร็จ";
+"saveVideoError" ="บันทึกวิดีโอไม่สำเร็จ";
+"timeout" ="คำขอหมดเวลา";
+
+"customCameraTips" ="แตะเพื่อถ่ายภาพค้างไว้เพื่อบันทึกวิดีโอ";
+"customCameraTakePhotoTips" ="แตะเพื่อถ่ายรูป";
+"customCameraRecordVideoTips" ="กดค้างเพื่อบันทึกวิดีโอ";
+"minRecordTimeTips" ="บันทึกอย่างน้อย %lds";
+
+"cameraRoll" ="ล่าสุด";
+"panoramas" ="ภาพพาโนรามา";
+"videos" ="วิดีโอ";
+"favorites" ="รายการโปรด";
+"timelapses" ="เวลาที่ล่วงเลย";
+"recentlyAdded" ="เพิ่มมาเร็ว ๆ นี้";
+"bursts" ="ระเบิด";
+"slomoVideos" ="สโลว์โมชั่น";
+"selfPortraits" ="เซลฟี่";
+"screenshots" ="ภาพหน้าจอ";
+"depthEffect" ="ภาพเหมือน";
+"livePhotos" ="ภาพถ่ายสด";
+"animated" ="เคลื่อนไหว";
+"myPhotoStream" ="สตรีมรูปภาพของฉัน";
+
+"noTitleAlbumListPlaceholder" ="ภาพถ่ายทั้งหมด";
+"unableToAccessAllPhotos" ="ไม่สามารถเข้าถึงรูปภาพทั้งหมดในอัลบั้มได้\nอนุญาตให้เข้าถึง \"รูปภาพทั้งหมด\" ใน \"รูปภาพ\"";
+"textStickerRemoveTips" ="ลากที่นี่เพื่อลบ";
