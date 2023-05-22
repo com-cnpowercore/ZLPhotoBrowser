@@ -1,0 +1,68 @@
+"previewCamera" = "переглянути фотоапарат";
+"previewCameraRecord" = "записати відео";
+"previewAlbum" = "альбом";
+"cancel" = "скасувати";
+
+"originalPhoto" = "оригінал";
+"done" = "готово";
+"ok" = "готово";
+"editFinish" = "завершити";
+
+"back" = "назад";
+"edit" = "редагувати";
+"revert" = "відновити";
+"brightness" = "яскравість";
+"contrast" = "контрастність";
+"saturation" = "насиченість";
+
+"photo" = "фото";
+"preview" = "перегляд";
+
+"noPhotoTips" = "немає фото";
+
+"hudLoading" = "завантаження...";
+
+"exceededMaxSelectCount" = "Максимальна кількість вибраних фото - %ld";
+"longerThanMaxVideoDuration" = "Відео не може тривати більше %ld секунд";
+"shorterThanMaxVideoDuration" = "Відео не може тривати менше %ld секунд";
+"exceededMaxVideoSelectCount" = "Максимальна кількість вибраних відео - %ld";
+"lessThanMinVideoSelectCount" = "Мінімальна кількість вибраних відео - %ld";
+
+"noCameraAuthority" = "Будь ласка, дозвольте %@ отримати доступ до вашої камери в налаштуваннях iPhone: \"Налаштування > Конфіденційність > Камера\"";
+"noPhotoLibratyAuthority" = "Будь ласка, дозвольте %@ отримати доступ до ваших фотографій в налаштуваннях iPhone: \"Налаштування > Конфіденційність > Фотографії\"";
+"noMicrophoneAuthority" = "Неможливо записати звук. Будь ласка, відкрийте доступ до мікрофону для %@ в налаштуваннях: \"Налаштування > %@\"";
+"cameraUnavailable" = "Камера недоступна";
+"keepRecording" = "Продовжуйте запис";
+"gotoSettings" = "Перейти до налаштувань";
+
+"iCloudVideoLoadFaild" = "Неможливо синхронізувати з iCloud";
+"imageLoadFailed" = "Помилка завантаження зображення";
+
+"save" = "зберегти";
+"saveImageError" = "Помилка збереження зображення";
+"saveVideoError" = "Помилка збереження відео";
+"timeout" = "Час очікування сплив";
+
+"customCameraTips" = "Натисніть, щоб зробити фото, утримуйте для записування відео";
+"customCameraTakePhotoTips" = "Натисніть, щоб зробити фото";
+"customCameraRecordVideoTips" = "Утримуйте, щоб записати відео";
+"minRecordTimeTips" = "Мінімальний час запису - %ld секунд";
+
+"cameraRoll" = "Останні";
+"panoramas" = "Панорами";
+"videos" = "Відео";
+"favorites" = "Обрані";
+"timelapses" = "Таймлапси";
+"recentlyAdded" = "Нещодавно додані";
+"bursts" = "Серії";
+"slomoVideos" = "Заміднені відео";
+"selfPortraits" = "Селфі";
+"screenshots" = "Скріншоти";
+"depthEffect" = "Портрет";
+"livePhotos" = "Живі фото";
+"animated" = "Анімації";
+"myPhotoStream" = "Мій потік фото";
+
+"noTitleAlbumListPlaceholder" = "Всі фото";
+"unableToAccessAllPhotos" = "Не вдається отримати доступ до всіх фотографій в альбомі, будь ласка, дозвольте доступ до \"Усі фото\" в налаштуваннях \"Фотографії\"";
+"textStickerRemoveTips" = "Перетягніть сюди, щоб видалити";

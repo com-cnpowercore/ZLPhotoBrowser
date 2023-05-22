@@ -48,6 +48,10 @@ extension ZLLanguageType {
             return "عربي (Arabic)"
         case .thai:
             return "ภาษาไทย (Thai)"
+        case .hebrew:
+            return "עִברִית (Hebrew)"
+        case .ukrainian:
+            return "українська (Ukrainian)"
         }
     }
     

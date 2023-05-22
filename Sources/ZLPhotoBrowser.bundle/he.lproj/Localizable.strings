@@ -1,0 +1,68 @@
+"previewCamera" = "צילום מציאותי";
+"previewCameraRecord" = "צילום";
+"previewAlbum" = "אלבום";
+"cancel" = "ביטול";
+
+"originalPhoto" = "תמונה מקורית";
+"done" = "אישור";
+"ok" = "אישור";
+"editFinish" = "סיום עריכה";
+
+"back" = "חזור";
+"edit" = "עריכה";
+"revert" = "שחזור";
+"brightness" = "בהירות";
+"contrast" = "ניגודיות";
+"saturation" = "רווי צבעים";
+
+"photo" = "תמונה";
+"preview" = "תצוגה מקדימה";
+
+"noPhotoTips" = "אין תמונות";
+
+"hudLoading" = "טוען...";
+
+"exceededMaxSelectCount" = "ניתן לבחור עד %ld תמונות";
+"longerThanMaxVideoDuration" = "לא ניתן לבחור וידאו ארוך מ-%ld שניות";
+"shorterThanMaxVideoDuration" = "לא ניתן לבחור וידאו קצר מ-%ld שניות";
+"exceededMaxVideoSelectCount" = "ניתן לבחור עד %ld וידאו";
+"lessThanMinVideoSelectCount" = "יש לבחור מינימום %ld וידאו";
+
+"noCameraAuthority" = "בבקשה, הגדר הרשאה למצלמה של %@ בהגדרות הפרטיות של ה-iPhone";
+"noPhotoLibratyAuthority" = "בבקשה, הגדר הרשאה לגלריית התמונות של %@ בהגדרות הפרטיות של ה-iPhone";
+"noMicrophoneAuthority" = "לא ניתן להקליט שמע, בבקשה כנס להגדרות > %@ ואפשר הרשאת מיקרופון";
+"cameraUnavailable" = "המצלמה אינה זמינה";
+"keepRecording" = "המשך הקלטה";
+"gotoSettings" = "פתח הגדרות";
+
+"iCloudVideoLoadFaild" = "נכשל בטעינת iCloud";
+"imageLoadFailed" = "נכשל בטעינת התמונה";
+
+"save" = "שמור";
+"saveImageError" = "נכשל בשמירת התמונה";
+"saveVideoError" = "נכשל בשמירת הווידאו";
+"timeout" = "פג תוקף";
+
+"customCameraTips" = "לחץ לצילום, לחץ ממושך להקלטה";
+"customCameraTakePhotoTips" = "לחץ לצילום";
+"customCameraRecordVideoTips" = "לחץ ממושך להקלטה";
+"minRecordTimeTips" = "הקלט לפחות %ld שניות";
+
+"cameraRoll" = "רשימת התמונות האחרונות";
+"panoramas" = "תמונות פאנורמיות";
+"videos" = "סרטונים";
+"favorites" = "מועדפים";
+"timelapses" = "צילומי זמן";
+"recentlyAdded" = "נוספו לאחרונה";
+"bursts" = "צילומים מהירים";
+"slomoVideos" = "סרטוני קיץ";
+"selfPortraits" = "צילומי עצמים";
+"screenshots" = "לכידות מסך";
+"depthEffect" = "אפקט עומק";
+"livePhotos" = "תמונות חיות";
+"animated" = "תמונות מונפשות";
+"myPhotoStream" = "זרם התמונות שלי";
+
+"noTitleAlbumListPlaceholder" = "כל התמונות";
+"unableToAccessAllPhotos" = "לא ניתן לגשת לכל התמונות באלבום, \nנא לאפשר גישה לכל התמונות ב-'תמונות'.";
+"textStickerRemoveTips" = "גרור לכאן כדי להסיר";
