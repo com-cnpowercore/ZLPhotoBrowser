@@ -120,12 +120,11 @@ class ZLPhotoPreviewController: UIViewController {
         let btn = createBtn(localLanguageTextValue(.originalPhoto), #selector(originalPhotoClick))
         btn.titleLabel?.lineBreakMode = .byCharWrapping
         btn.titleLabel?.numberOfLines = 2
-        btn.contentHorizontalAlignment = .left
         btn.setImage(.zl.getImage("zl_btn_original_circle"), for: .normal)
         btn.setImage(.zl.getImage("zl_btn_original_selected"), for: .selected)
         btn.setImage(.zl.getImage("zl_btn_original_selected"), for: [.selected, .highlighted])
         btn.adjustsImageWhenHighlighted = false
-        btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        btn.alignHorizontal(spacing: 10)
         return btn
     }()
     

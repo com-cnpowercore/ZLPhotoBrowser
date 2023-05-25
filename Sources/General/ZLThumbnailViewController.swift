@@ -24,11 +24,10 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-import UIKit
 import Photos
+import UIKit
 
 extension ZLThumbnailViewController {
-    
     private enum SlideSelectType {
         case none
         case select
@@ -40,11 +39,9 @@ extension ZLThumbnailViewController {
         case top
         case bottom
     }
-    
 }
 
 class ZLThumbnailViewController: UIViewController {
-    
     private var albumList: ZLAlbumListModel
     
     private var externalNavView: ZLExternalAlbumListNavView?
@@ -76,12 +73,11 @@ class ZLThumbnailViewController: UIViewController {
         let btn = createBtn(localLanguageTextValue(.originalPhoto), #selector(originalPhotoClick))
         btn.titleLabel?.lineBreakMode = .byCharWrapping
         btn.titleLabel?.numberOfLines = 2
-        btn.contentHorizontalAlignment = .left
         btn.setImage(.zl.getImage("zl_btn_original_circle"), for: .normal)
         btn.setImage(.zl.getImage("zl_btn_original_selected"), for: .selected)
         btn.setImage(.zl.getImage("zl_btn_original_selected"), for: [.selected, .highlighted])
         btn.adjustsImageWhenHighlighted = false
-        btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 0)
+        btn.alignHorizontal(spacing: 10)
         btn.isHidden = !(ZLPhotoConfiguration.default().allowSelectOriginal && ZLPhotoConfiguration.default().allowSelectImage)
         btn.isSelected = (navigationController as? ZLImageNavController)?.isSelectedOriginal ?? false
         return btn
@@ -182,7 +178,7 @@ class ZLThumbnailViewController: UIViewController {
     var arrDataSources: [ZLPhotoModel] = []
     
     var showCameraCell: Bool {
-        if ZLPhotoConfiguration.default().allowTakePhotoInLibrary, self.albumList.isCameraRoll {
+        if ZLPhotoConfiguration.default().allowTakePhotoInLibrary, albumList.isCameraRoll {
             return true
         }
         return false
@@ -587,7 +583,8 @@ class ZLThumbnailViewController: UIViewController {
                     if self.panSelectType == .select {
                         if inSection,
                            !m.isSelected,
-                           canAddModel(m, currentSelectCount: nav.arrSelectedModels.count, sender: self, showAlert: false) {
+                           canAddModel(m, currentSelectCount: nav.arrSelectedModels.count, sender: self, showAlert: false)
+                        {
                             m.isSelected = true
                         }
                     } else if self.panSelectType == .cancel {
@@ -928,7 +925,6 @@ class ZLThumbnailViewController: UIViewController {
 // MARK: Gesture delegate
 
 extension ZLThumbnailViewController: UIGestureRecognizerDelegate {
-    
     func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         let config = ZLPhotoConfiguration.default()
         if (config.maxSelectCount == 1 && !config.showSelectBtnWhenSingleSelect) || embedAlbumListView?.isHidden == false {
@@ -936,13 +932,11 @@ extension ZLThumbnailViewController: UIGestureRecognizerDelegate {
         }
         return true
     }
-    
 }
 
 // MARK: CollectionView Delegate & DataSource
 
 extension ZLThumbnailViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return ZLLayout.thumbCollectionViewItemSpacing
     }
@@ -1213,11 +1207,9 @@ extension ZLThumbnailViewController: UICollectionViewDataSource, UICollectionVie
             }
         }
     }
-    
 }
 
 extension ZLThumbnailViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         picker.dismiss(animated: true) {
             let image = info[.originalImage] as? UIImage
@@ -1225,11 +1217,9 @@ extension ZLThumbnailViewController: UIImagePickerControllerDelegate, UINavigati
             self.save(image: image, videoUrl: url)
         }
     }
-    
 }
 
 extension ZLThumbnailViewController: PHPhotoLibraryChangeObserver {
-    
     func photoLibraryDidChange(_ changeInstance: PHChange) {
         guard let changes = changeInstance.changeDetails(for: albumList.result) else {
             return
@@ -1268,13 +1258,11 @@ extension ZLThumbnailViewController: PHPhotoLibraryChangeObserver {
             self.resetBottomToolBtnStatus()
         }
     }
-    
 }
 
 // MARK: embed album list nav view
 
 class ZLEmbedAlbumListNavView: UIView {
-    
     private static let titleViewH: CGFloat = 32
     
     private static let arrowH: CGFloat = 20
@@ -1428,13 +1416,11 @@ class ZLEmbedAlbumListNavView: UIView {
             self.arrow.transform = .identity
         }
     }
-    
 }
 
 // MARK: external album list nav view
 
 class ZLExternalAlbumListNavView: UIView {
-    
     private let title: String
     
     private var navBlurView: UIVisualEffectView?
@@ -1526,11 +1512,9 @@ class ZLExternalAlbumListNavView: UIView {
     @objc private func cancelBtnClick() {
         cancelBlock?()
     }
-    
 }
 
 class ZLLimitedAuthorityTipsView: UIView {
-    
     static let height: CGFloat = 70
     
     private lazy var icon = UIImageView(image: .zl.getImage("zl_warning"))
@@ -1581,5 +1565,4 @@ class ZLLimitedAuthorityTipsView: UIView {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
-    
 }
