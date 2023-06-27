@@ -55,7 +55,7 @@ public class ZLImagePreviewController: UIViewController {
     private var indexBeforOrientationChanged: Int
     
     private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = ZLCollectionLayoutForLocalization()
         layout.scrollDirection = .horizontal
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -87,7 +87,7 @@ public class ZLImagePreviewController: UIViewController {
     
     private lazy var backBtn: UIButton = {
         let btn = UIButton(type: .custom)
-        btn.setImage(.zl.getImage("zl_navBack"), for: .normal)
+        btn.setImage(.zl.getImage("zl_navBack")?.imageFlippedForRightToLeftLayoutDirection(), for: .normal)
         btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
         btn.addTarget(self, action: #selector(backBtnClick), for: .touchUpInside)
         return btn
@@ -230,6 +230,12 @@ public class ZLImagePreviewController: UIViewController {
         indexLabel.frame = CGRect(x: (view.frame.width - 80) / 2, y: insets.top, width: 80, height: 44)
         selectBtn.frame = CGRect(x: view.frame.width - 40 - insets.right, y: insets.top + (44 - 25) / 2, width: 25, height: 25)
         
+        if view.semanticContentAttribute == .forceRightToLeft {
+            // 在RTL布局下调整CGRect属性
+            backBtn.frame = CGRect(x: view.frame.width - insets.right - 60, y: insets.top, width: 60, height: 44)
+            selectBtn.frame = CGRect(x: insets.left, y: insets.top + (44 - 25) / 2, width: 25, height: 25)
+        }
+        
         let bottomViewH = ZLLayout.bottomToolViewH
         
         bottomView.frame = CGRect(x: 0, y: view.frame.height - insets.bottom - bottomViewH, width: view.frame.width, height: bottomViewH + insets.bottom)
@@ -319,6 +325,11 @@ public class ZLImagePreviewController: UIViewController {
         let doneBtnW = doneTitle.zl.boundingRect(font: ZLLayout.bottomToolTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 30)).width + 20
         doneBtn.frame = CGRect(x: bottomView.bounds.width - doneBtnW - 15, y: btnY, width: doneBtnW, height: ZLLayout.bottomToolBtnH)
         doneBtn.setTitle(doneTitle, for: .normal)
+        
+        if view.semanticContentAttribute == .forceRightToLeft {
+            // 在RTL布局下调整CGRect属性
+            doneBtn.frame = CGRect(x: 15, y: btnY, width: doneBtnW, height: ZLLayout.bottomToolBtnH)
+        }
     }
     
     private func dismiss() {
