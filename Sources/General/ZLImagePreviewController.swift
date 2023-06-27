@@ -296,7 +296,9 @@ public class ZLImagePreviewController: UIViewController {
     }
     
     private func resetSubViewStatus() {
-        indexLabel.text = String(currentIndex + 1) + " / " + String(datas.count)
+        let current = String(currentIndex + 1)
+        let total = String(datas.count)
+        indexLabel.text = UIView.appearance().semanticContentAttribute == .forceRightToLeft ? "\(total)/\(current)" : "\(current)/\(total)"
         
         if showSelectBtn {
             selectBtn.isSelected = selectStatus[currentIndex]
