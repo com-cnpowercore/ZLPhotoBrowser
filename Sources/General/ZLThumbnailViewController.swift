@@ -311,7 +311,11 @@ class ZLThumbnailViewController: UIViewController {
             let previewTitle = localLanguageTextValue(.preview)
             let previewBtnW = previewTitle.zl.boundingRect(font: ZLLayout.bottomToolTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 30)).width
             previewBtn.frame = CGRect(x: 15, y: btnY, width: min(btnMaxWidth, previewBtnW), height: btnH)
-            
+            if view.semanticContentAttribute == .forceRightToLeft {
+                // 在RTL布局下调整CGRect属性
+                previewBtn.frame = CGRect(x: bottomView.bounds.width - min(btnMaxWidth, previewBtnW) - 15, y: btnY, width: min(btnMaxWidth, previewBtnW), height: btnH)
+            }
+
             let originalTitle = localLanguageTextValue(.originalPhoto)
             let originBtnW = originalTitle.zl.boundingRect(
                 font: ZLLayout.bottomToolTitleFont,
@@ -734,6 +738,10 @@ class ZLThumbnailViewController: UIViewController {
         
         let btnY = showLimitAuthTipsView ? ZLLimitedAuthorityTipsView.height + ZLLayout.bottomToolBtnY : ZLLayout.bottomToolBtnY
         doneBtn.frame = CGRect(x: bottomView.bounds.width - doneBtnW - 15, y: btnY, width: doneBtnW, height: ZLLayout.bottomToolBtnH)
+        if view.semanticContentAttribute == .forceRightToLeft {
+            // 在RTL布局下调整CGRect属性
+            doneBtn.frame = CGRect(x: 15, y: btnY, width: doneBtnW, height: ZLLayout.bottomToolBtnH)
+        }
     }
     
     private func scrollToBottom() {
@@ -1341,8 +1349,16 @@ class ZLEmbedAlbumListNavView: UIView {
         if ZLPhotoUIConfiguration.default().navCancelButtonStyle == .text {
             let cancelBtnW = localLanguageTextValue(.cancel).zl.boundingRect(font: ZLLayout.navTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 44)).width
             cancelBtn.frame = CGRect(x: insets.left + 20, y: insets.top, width: cancelBtnW, height: 44)
+            if semanticContentAttribute == .forceRightToLeft {
+                // 在RTL布局下调整CGRect属性
+                cancelBtn.frame = CGRect(x: bounds.width - cancelBtnW - insets.right - 20, y: insets.top, width: cancelBtnW, height: 44)
+            }
         } else {
             cancelBtn.frame = CGRect(x: insets.left + 10, y: insets.top, width: 44, height: 44)
+            if semanticContentAttribute == .forceRightToLeft {
+                // 在RTL布局下调整CGRect属性
+                cancelBtn.frame = CGRect(x: bounds.width - 44 - insets.right - 10, y: insets.top, width: 44, height: 44)
+            }
         }
     }
     
@@ -1484,11 +1500,24 @@ class ZLExternalAlbumListNavView: UIView {
         let albumTitleW = min(bounds.width / 2, title.zl.boundingRect(font: ZLLayout.navTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 44)).width)
         albumTitleLabel.frame = CGRect(x: (bounds.width - albumTitleW) / 2, y: insets.top, width: albumTitleW, height: 44)
         
+        if semanticContentAttribute == .forceRightToLeft {
+            // 在RTL布局下调整CGRect属性
+            backBtn.frame = CGRect(x: bounds.width - 60, y: insets.top, width: 60, height: 44)
+        }
+
         if ZLPhotoUIConfiguration.default().navCancelButtonStyle == .text {
             let cancelBtnW = localLanguageTextValue(.cancel).zl.boundingRect(font: ZLLayout.navTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 44)).width + 40
             cancelBtn.frame = CGRect(x: bounds.width - insets.right - cancelBtnW, y: insets.top, width: cancelBtnW, height: 44)
+            if semanticContentAttribute == .forceRightToLeft {
+                // 在RTL布局下调整CGRect属性
+                cancelBtn.frame = CGRect(x: insets.left + cancelBtnW, y: insets.top, width: cancelBtnW, height: 44)
+            }
         } else {
             cancelBtn.frame = CGRect(x: bounds.width - insets.right - 44 - 10, y: insets.top, width: 44, height: 44)
+            if semanticContentAttribute == .forceRightToLeft {
+                // 在RTL布局下调整CGRect属性
+                cancelBtn.frame = CGRect(x: insets.right + 10, y: insets.top, width: 44, height: 44)
+            }
         }
     }
     

@@ -40,7 +40,7 @@ class ZLPhotoPreviewController: UIViewController {
     var currentIndex: Int
     
     lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = ZLCollectionLayoutForLocalization()
         layout.scrollDirection = .horizontal
         
         let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -73,7 +73,7 @@ class ZLPhotoPreviewController: UIViewController {
     
     private lazy var backBtn: UIButton = {
         let btn = UIButton(type: .custom)
-        btn.setImage(.zl.getImage("zl_navBack"), for: .normal)
+        btn.setImage(.zl.getImage("zl_navBack")?.imageFlippedForRightToLeftLayoutDirection(), for: .normal)
         btn.imageEdgeInsets = UIEdgeInsets(top: 0, left: -10, bottom: 0, right: 0)
         btn.addTarget(self, action: #selector(backBtnClick), for: .touchUpInside)
         return btn
@@ -225,6 +225,12 @@ class ZLPhotoPreviewController: UIViewController {
         selectBtn.frame = CGRect(x: view.frame.width - 40 - insets.right, y: insets.top + (44 - 25) / 2, width: 25, height: 25)
         indexLabel.frame = selectBtn.bounds
         
+        if view.semanticContentAttribute == .forceRightToLeft {
+            // 在RTL布局下调整CGRect属性
+            backBtn.frame = CGRect(x: view.frame.width - 60, y: insets.top, width: 60, height: 44)
+            selectBtn.frame = CGRect(x: insets.left + 15, y: insets.top + (44 - 25) / 2, width: 25, height: 25)
+        }
+
         refreshBottomViewFrame()
         
         let ori = UIApplication.shared.statusBarOrientation
@@ -290,6 +296,12 @@ class ZLPhotoPreviewController: UIViewController {
         }
         let doneBtnW = doneTitle.zl.boundingRect(font: ZLLayout.bottomToolTitleFont, limitSize: CGSize(width: CGFloat.greatestFiniteMagnitude, height: 30)).width + 20
         doneBtn.frame = CGRect(x: bottomView.bounds.width - doneBtnW - 15, y: btnY, width: doneBtnW, height: btnH)
+        
+        if view.semanticContentAttribute == .forceRightToLeft {
+            // 在RTL布局下调整CGRect属性
+            editBtn.frame = CGRect(x: bottomView.bounds.width - min(btnMaxWidth, editBtnW) - 15, y: btnY, width: min(btnMaxWidth, editBtnW), height: btnH)
+            doneBtn.frame = CGRect(x: 15, y: btnY, width: doneBtnW, height: btnH)
+        }
     }
     
     private func setupUI() {
@@ -820,7 +832,7 @@ extension ZLPhotoPreviewController: UICollectionViewDataSource, UICollectionView
 class ZLPhotoPreviewSelectedView: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDragDelegate, UICollectionViewDropDelegate {
     
     private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
+        let layout = ZLCollectionLayoutForLocalization()
         layout.itemSize = CGSize(width: 60, height: 60)
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
